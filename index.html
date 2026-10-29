@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma boutique</title>
+<meta name="description" content="Ma boutique en ligne : produits faits avec soin.">
+<style>
+:root{
+  --fond:#F2F5F3; --encre:#17302D; --doux:#5B6F6B; --carte:#FFFFFF; --accent:#E8A317; --trait:#D5DED9;
+  --serif:Georgia,"Times New Roman",serif; --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--fond);color:var(--encre);font:17px/1.6 var(--sans)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header,main,footer{max-width:1000px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding-top:20px;padding-bottom:20px}
+.logo{font:700 1.3rem var(--serif);text-decoration:none}
+nav a{margin-left:18px;text-decoration:none;color:var(--doux)}
+nav a:hover{color:var(--encre)}
+.hero{padding:56px 0 48px;border-bottom:1px solid var(--trait)}
+.hero h1{font:700 clamp(2.2rem,7vw,4rem)/1.05 var(--serif);max-width:12em}
+.hero p{margin-top:18px;max-width:34em;color:var(--doux)}
+.btn{display:inline-block;margin-top:24px;padding:12px 22px;background:var(--encre);color:#fff;text-decoration:none;border-radius:6px;font-weight:600}
+.btn:hover{background:#0f211f}
+h2{font:700 1.7rem var(--serif);margin:48px 0 20px}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.produit{background:var(--carte);border:1px solid var(--trait);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.photo{aspect-ratio:4/3;background:var(--trait);display:grid;place-items:center;color:var(--doux);font-size:.9rem}
+.photo img{width:100%;height:100%;object-fit:cover}
+.corps{padding:16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.corps h3{font:700 1.15rem var(--serif)}
+.corps p{color:var(--doux);font-size:.95rem;flex:1}
+.prix{font-weight:700}
+.acheter{margin-top:10px;text-align:center;padding:10px;background:var(--accent);color:var(--encre);border-radius:6px;font-weight:700;text-decoration:none}
+.acheter:hover{filter:brightness(.95)}
+#apropos p{max-width:38em;color:var(--doux)}
+form{display:grid;gap:12px;max-width:440px}
+label{font-weight:600;font-size:.95rem}
+input,textarea{width:100%;padding:10px;border:1px solid var(--trait);border-radius:6px;font:inherit;background:#fff}
+button{justify-self:start;padding:12px 22px;border:0;border-radius:6px;background:var(--encre);color:#fff;font:600 1rem var(--sans);cursor:pointer}
+footer{padding-top:32px;padding-bottom:40px;margin-top:56px;border-top:1px solid var(--trait);color:var(--doux);font-size:.9rem}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">Ma boutique</a>
+  <nav><a href="#produits">Produits</a><a href="#apropos">À propos</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Des produits faits avec soin.</h1>
+    <p>Décris ici en une ou deux phrases ce que tu vends et pourquoi c'est spécial.</p>
+    <a class="btn" href="#produits">Voir les produits</a>
+  </section>
+
+  <section id="produits">
+    <h2>Produits</h2>
+    <div class="grille">
+      <!-- Pour ajouter un produit : copie un bloc <article> au complet. -->
+      <article class="produit">
+        <div class="photo"><!-- Remplace par : <img src="produit1.jpg" alt="Description"> -->Photo</div>
+        <div class="corps">
+          <h3>Produit 1</h3>
+          <p>Une courte description du produit.</p>
+          <span class="prix">25,00 $</span>
+          <!-- Remplace # par ton lien de paiement Stripe -->
+          <a class="acheter" href="#">Acheter</a>
+        </div>
+      </article>
+      <article class="produit">
+        <div class="photo">Photo</div>
+        <div class="corps">
+          <h3>Produit 2</h3>
+          <p>Une courte description du produit.</p>
+          <span class="prix">40,00 $</span>
+          <a class="acheter" href="#">Acheter</a>
+        </div>
+      </article>
+      <article class="produit">
+        <div class="photo">Photo</div>
+        <div class="corps">
+          <h3>Produit 3</h3>
+          <p>Une courte description du produit.</p>
+          <span class="prix">60,00 $</span>
+          <a class="acheter" href="#">Acheter</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p>Présente-toi ici : qui tu es, comment tu fabriques ou choisis tes produits, et ce qui te motive.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <!-- Remplace TON-ID par l'identifiant fourni par Formspree.io (gratuit) -->
+    <form action="https://formspree.io/f/TON-ID" method="POST">
+      <label for="nom">Nom</label>
+      <input id="nom" name="nom" required>
+      <label for="courriel">Courriel</label>
+      <input id="courriel" name="email" type="email" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+      <button type="submit">Envoyer le message</button>
+    </form>
+  </section>
+</main>
+
+<footer>© 2026 Ma boutique. Tous droits réservés.</footer>
+</body>
+</html>
